@@ -37,10 +37,11 @@ const CreateBlog = ({ router }) => {
         success: '',
         formData: '',
         title: '',
-        hidePublishButton: false
+        hidePublishButton: false,
+        loading: false
     });
 
-    const { error, sizeError, success, formData, title, hidePublishButton } = values;
+    const { error, sizeError, success, formData, title, hidePublishButton, loading } = values;
     const token = getCookie('token');
 
     useEffect(() => {
@@ -70,13 +71,20 @@ const CreateBlog = ({ router }) => {
     };
 
     const publishBlog = e => {
+        setValues({ ...values, loading: true });
         e.preventDefault();
         // console.log('ready to publishBlog');
         createBlog(formData, token).then(data => {
             if (data.error) {
-                setValues({ ...values, error: data.error });
+                setValues({ ...values, error: data.error, loading: false });
             } else {
-                setValues({ ...values, title: '', error: '', success: `A new blog titled "${data.title}" is created` });
+                setValues({
+                    ...values,
+                    loading: false,
+                    title: '',
+                    error: '',
+                    success: `A new blog titled "${data.title}" is created`
+                });
                 setBody('');
                 setCategories([]);
                 setTags([]);
@@ -168,6 +176,12 @@ const CreateBlog = ({ router }) => {
         </div>
     );
 
+    const showLoading = () => (
+        <div className="alert alert-info" style={{ display: loading ? '' : 'none' }}>
+            Loading...
+        </div>
+    );
+
     const createBlogForm = () => {
         return (
             <form onSubmit={publishBlog}>
@@ -203,6 +217,7 @@ const CreateBlog = ({ router }) => {
                     <div className="pt-3">
                         {showError()}
                         {showSuccess()}
+                        {showLoading()}
                     </div>
                 </div>
 
