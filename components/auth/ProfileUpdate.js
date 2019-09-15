@@ -55,7 +55,8 @@ const ProfileUpdate = () => {
         setValues({ ...values, loading: true });
         update(token, userData).then(data => {
             if (data.error) {
-                setValues({ ...values, error: data.error, success: false, loading: false });
+                console.log('data.error', data.error);
+                setValues({ ...values, error: data.error, loading: false });
             } else {
                 updateUser(data, () => {
                     setValues({
@@ -102,6 +103,11 @@ const ProfileUpdate = () => {
                 <input onChange={handleChange('password')} type="password" value={password} className="form-control" />
             </div>
             <div>
+                {showSuccess()}
+                {showError()}
+                {showLoading()}
+            </div>
+            <div>
                 <button type="submit" className="btn btn-primary">
                     Submit
                 </button>
@@ -139,12 +145,7 @@ const ProfileUpdate = () => {
                             alt="user profile"
                         />
                     </div>
-                    <div className="col-md-8 mb-5">
-                        {showSuccess()}
-                        {showError()}
-                        {showLoading()}
-                        {profileUpdateForm()}
-                    </div>
+                    <div className="col-md-8 mb-5">{profileUpdateForm()}</div>
                 </div>
             </div>
         </React.Fragment>

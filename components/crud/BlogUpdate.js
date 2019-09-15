@@ -27,10 +27,11 @@ const BlogUpdate = ({ router }) => {
         success: '',
         formData: '',
         title: '',
-        body: ''
+        body: '',
+        loading: false
     });
 
-    const { error, success, formData, title } = values;
+    const { error, success, formData, title, loading } = values;
     const token = getCookie('token');
 
     useEffect(() => {
@@ -191,9 +192,14 @@ const BlogUpdate = ({ router }) => {
         e.preventDefault();
         updateBlog(formData, token, router.query.slug).then(data => {
             if (data.error) {
-                setValues({ ...values, error: data.error });
+                setValues({ ...values, error: data.error, loading: false });
             } else {
-                setValues({ ...values, title: '', success: `Blog titled "${data.title}" is successfully updated` });
+                setValues({
+                    ...values,
+                    loading: false,
+                    title: '',
+                    success: `Blog titled "${data.title}" is successfully updated`
+                });
                 if (isAuth() && isAuth().role === 1) {
                     // Router.replace(`/admin/crud/${router.query.slug}`);
                     Router.replace(`/admin`);
@@ -253,6 +259,7 @@ const BlogUpdate = ({ router }) => {
                     <div className="pt-3">
                         {showSuccess()}
                         {showError()}
+                        {showLoading()}
                     </div>
 
                     {body && (
