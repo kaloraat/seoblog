@@ -223,6 +223,12 @@ const BlogUpdate = ({ router }) => {
         </div>
     );
 
+    const showLoading = () => (
+        <div className="alert alert-info" style={{ display: loading ? '' : 'none' }}>
+            Loading...
+        </div>
+    );
+
     const updateBlogForm = () => {
         return (
             <form onSubmit={editBlog}>
