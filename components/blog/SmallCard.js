@@ -26,7 +26,7 @@ const SmallCard = ({ blog }) => {
                             <h5 className="card-title">{blog.title}</h5>
                         </a>
                     </Link>
-                    <div className="card-text">{renderHTML(blog.excerpt)}</div>
+                    {/*<div className="card-text">{renderHTML(blog.excerpt)}</div>*/}
                 </section>
             </div>
 
