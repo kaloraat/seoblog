@@ -73,7 +73,7 @@ const SingleBlog = ({ blog, query }) => {
     const showComments = () => {
         return (
             <div>
-                <DisqusThread id={blog.id} title={blog.title} path={`/blog/${blog.slug}`} />
+                <DisqusThread id={blog._id} title={blog.title} path={`/blog/${blog.slug}`} />
             </div>
         );
     };
