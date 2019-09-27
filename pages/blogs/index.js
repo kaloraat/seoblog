@@ -21,7 +21,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                 property="og:description"
                 content="Programming blogs and tutorials on react node next vue php laravel and web developoment"
             />
-            <meta property="og:type" content="webiste" />
+            <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}${router.pathname}`} />
             <meta property="og:site_name" content={`${APP_NAME}`} />
 

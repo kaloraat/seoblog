@@ -17,7 +17,7 @@ const Category = ({ category, blogs, query }) => {
             <link rel="canonical" href={`${DOMAIN}/categories/${query.slug}`} />
             <meta property="og:title" content={`${category.name}| ${APP_NAME}`} />
             <meta property="og:description" content={`Best programming tutorials on ${category.name}`} />
-            <meta property="og:type" content="webiste" />
+            <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}/categories/${query.slug}`} />
             <meta property="og:site_name" content={`${APP_NAME}`} />
 

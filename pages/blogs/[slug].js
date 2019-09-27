@@ -35,7 +35,7 @@ const SingleBlog = ({ blog, query }) => {
             <link rel="canonical" href={`${DOMAIN}/blogs/${query.slug}`} />
             <meta property="og:title" content={`${blog.title}| ${APP_NAME}`} />
             <meta property="og:description" content={blog.mdesc} />
-            <meta property="og:type" content="webiste" />
+            <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}/blogs/${query.slug}`} />
             <meta property="og:site_name" content={`${APP_NAME}`} />
 

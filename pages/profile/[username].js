@@ -16,7 +16,7 @@ const UserProfile = ({ user, blogs, query }) => {
             <link rel="canonical" href={`${DOMAIN}/profile/${query.username}`} />
             <meta property="og:title" content={`${user.username}| ${APP_NAME}`} />
             <meta property="og:description" content={`Blogs by ${user.username}`} />
-            <meta property="og:type" content="webiste" />
+            <meta property="og:type" content="website" />
             <meta property="og:url" content={`${DOMAIN}/profile/${query.username}`} />
             <meta property="og:site_name" content={`${APP_NAME}`} />
 
@@ -51,6 +51,7 @@ const UserProfile = ({ user, blogs, query }) => {
                                     <div className="row">
                                         <div className="col-md-8">
                                             <h5>{user.name}</h5>
+
                                             <p className="text-muted">Joined {moment(user.createdAt).fromNow()}</p>
                                         </div>
                                         <div className="col-md-4">
