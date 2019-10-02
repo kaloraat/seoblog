@@ -31,7 +31,7 @@ const Card = ({ blog }) => {
                 <p className="mark ml-1 pt-2 pb-2">
                     Written by{' '}
                     <Link href={`/profile/${blog.postedBy.username}`}>
-                        <a>{blog.postedBy.username}</a>
+                        <a>{blog.postedBy.name}</a>
                     </Link>{' '}
                     | Published {moment(blog.updatedAt).fromNow()}
                 </p>

@@ -90,10 +90,10 @@ const ProfileUpdate = () => {
                 <label className="text-muted">Name</label>
                 <input onChange={handleChange('name')} type="text" value={name} className="form-control" />
             </div>
-            <div className="form-group">
+            {/*<div className="form-group">
                 <label className="text-muted">Email</label>
                 <input onChange={handleChange('email')} type="text" value={email} className="form-control" />
-            </div>
+            </div>*/}
             <div className="form-group">
                 <label className="text-muted">About</label>
                 <textarea onChange={handleChange('about')} type="text" value={about} className="form-control" />
@@ -108,8 +108,8 @@ const ProfileUpdate = () => {
                 {showLoading()}
             </div>
             <div>
-                <button type="submit" className="btn btn-primary">
-                    Submit
+                <button type="submit" className="btn btn-primary" disabled={!username || !name || !email}>
+                    Update
                 </button>
             </div>
         </form>

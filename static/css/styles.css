@@ -1,3 +1,11 @@
+/**
+ * social login fb
+ */
+
+.metro .fa-facebook {
+    padding-right: 10px;
+}
+
 #nprogress .bar {
     height: 4px !important;
 }

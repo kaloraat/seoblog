@@ -3,6 +3,7 @@ import { signup, isAuth, preSignup } from '../../actions/auth';
 import Router from 'next/router';
 import Link from 'next/link';
 import LoginGoogle from './LoginGoogle';
+import LoginFacebook from './LoginFacebook';
 
 const SignupComponent = () => {
     const [values, setValues] = useState({
@@ -99,6 +100,7 @@ const SignupComponent = () => {
             {showLoading()}
             {showMessage()}
             <LoginGoogle />
+            <LoginFacebook />
             {showForm && signupForm()}
             <br />
             <Link href="/auth/password/forgot">
