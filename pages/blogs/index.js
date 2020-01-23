@@ -118,8 +118,8 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                             </section>
                         </header>
                     </div>
-                    <div className="container-fluid">{showAllBlogs()}</div>
-                    <div className="container-fluid">{showLoadedBlogs()}</div>
+                    <div className="container">{showAllBlogs()}</div>
+                    <div className="container">{showLoadedBlogs()}</div>
                     <div className="text-center pt-5 pb-5">{loadMoreButton()}</div>
                 </main>
             </Layout>
@@ -129,7 +129,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
 Blogs.getInitialProps = () => {
     let skip = 0;
-    let limit = 2;
+    let limit = 10;
     return listBlogsWithCategoriesAndTags(skip, limit).then(data => {
         if (data.error) {
             console.log(data.error);

@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import Router from 'next/router';
-import NProgress from 'nprogress';
-import { APP_NAME } from '../config';
-import { signout, isAuth } from '../actions/auth';
+import { useState } from "react";
+import Link from "next/link";
+import Router from "next/router";
+import NProgress from "nprogress";
+import { APP_NAME } from "../config";
+import { signout, isAuth } from "../actions/auth";
 import {
   Collapse,
   Navbar,
@@ -16,9 +16,9 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem
-} from 'reactstrap';
-import '.././node_modules/nprogress/nprogress.css';
-import Search from './blog/Search';
+} from "reactstrap";
+import ".././node_modules/nprogress/nprogress.css";
+import Search from "./blog/Search";
 
 Router.onRouteChangeStart = url => NProgress.start();
 Router.onRouteChangeComplete = url => NProgress.done();
@@ -87,7 +87,10 @@ const Header = () => {
 
             {isAuth() && (
               <NavItem>
-                <NavLink style={{ cursor: 'pointer' }} onClick={() => signout(() => Router.replace(`/signin`))}>
+                <NavLink
+                  style={{ cursor: "pointer" }}
+                  onClick={() => signout(() => Router.replace(`/signin`))}
+                >
                   Signout
                 </NavLink>
               </NavItem>

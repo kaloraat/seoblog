@@ -8,7 +8,7 @@ const Category = () => {
     const [values, setValues] = useState({
         name: '',
         error: false,
-        success: false,
+        succe1ss: false,
         categories: [],
         removed: false,
         reload: false
@@ -71,7 +71,8 @@ const Category = () => {
             if (data.error) {
                 setValues({ ...values, error: data.error, success: false });
             } else {
-                setValues({ ...values, error: false, success: false, name: '', removed: !removed, reload: !reload });
+                // setValues({ ...values, error: false, success: false, name: '', removed: !removed, reload: !reload });
+                setValues({ ...values, error: false, success: true, name: '', reload: !reload });
             }
         });
     };

@@ -2,8 +2,9 @@ import Link from 'next/link';
 import renderHTML from 'react-render-html';
 import { useState, useEffect } from 'react';
 import { listSearch } from '../../actions/blog';
+import Router, { withRouter } from 'next/router';
 
-const Search = () => {
+const Search = ({ router }) => {
     const [values, setValues] = useState({
         search: undefined,
         results: [],
@@ -18,6 +19,13 @@ const Search = () => {
         listSearch({ search }).then(data => {
             setValues({ ...values, results: data, searched: true, message: `${data.length} blogs found` });
         });
+        // show search result on different page
+        // https://www.udemy.com/instructor/communication/qa/8593208/detail/
+
+        // Router.push({
+        //     pathname: '/search',
+        //     query: { searchQuery: search }
+        // });
     };
 
     const handleChange = e => {
@@ -67,4 +75,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export default withRouter(Search);

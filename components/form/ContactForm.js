@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { emailContactForm } from '../../actions/form';
+import { isAuth } from '../../actions/auth';
 
 const ContactForm = ({ authorEmail }) => {
     const [values, setValues] = useState({
@@ -8,7 +9,7 @@ const ContactForm = ({ authorEmail }) => {
         name: '',
         email: '',
         sent: false,
-        buttonText: 'Send Message',
+        buttonText: isAuth() ? 'Send Message' : 'Login to Send Message',
         success: false,
         error: false
     });
@@ -79,7 +80,9 @@ const ContactForm = ({ authorEmail }) => {
                 </div>
 
                 <div>
-                    <button className="btn btn-primary">{buttonText}</button>
+                    <button className="btn btn-primary" disabled={!isAuth()}>
+                        {buttonText}
+                    </button>
                 </div>
             </form>
         );

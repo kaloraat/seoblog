@@ -36,9 +36,7 @@ const Index = ({ router }) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 text-center">
-                                <h1 className="display-4 font-weight-bold">
-                                    PROGRAMMING & WEB DEVELOPMENT BLOGS/TUTORIALS
-                                </h1>
+                                <h1 className="font-weight-bold">PROGRAMMING & WEB DEVELOPMENT BLOGS/TUTORIALS</h1>
                             </div>
                         </div>
                     </div>
